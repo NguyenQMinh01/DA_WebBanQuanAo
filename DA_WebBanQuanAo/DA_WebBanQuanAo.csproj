@@ -226,6 +226,7 @@
     <Content Include="Images\quannu3.jpg" />
     <Content Include="Images\quanunisex1.jpg" />
     <Content Include="Images\search.jpg" />
+    <Content Include="index.html" />
     <Content Include="Models\QLShop.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>QLShop.designer.cs</LastGenOutput>
