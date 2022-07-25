@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="container text-center" >
+    <h2>Đăng Nhập Tài Khoản</h2>
+</div>
+<table class="table">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr>
+            <td style="text-align:right;">Tên Đăng nhập: </td>
+            <td><input type="text" name="TenDN" class="form-control" /> @ViewData["Loi1"] </td>
+        </tr>
+        <tr>
+            <td style="text-align:right;">Mật Khẩu: </td>
+            <td><input type="password" name="Matkhau" class="form-control" />@ViewData["Loi2"]</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="ĐĂNG NHẬP" class="btn btn-primary" /></td>
+        </tr>
+    }
+
+</table>
+<h5 style="color:red ;text-align:center">@ViewBag.TB</h5>

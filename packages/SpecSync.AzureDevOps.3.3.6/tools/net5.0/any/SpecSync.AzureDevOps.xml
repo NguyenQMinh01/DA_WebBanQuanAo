@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpecSync.AzureDevOps</name>
+    </assembly>
+    <members>
+        <member name="P:SpecSync.AzureDevOps.Analyzing.AttachedFileData.FilePath">
+            <summary>
+            Full path of the attachment on the local file system (only for local)
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Analyzing.AttachedFileData.TargetUrl">
+            <summary>
+            Target URL of the attachment (only for remote)
+            </summary>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.Parsing.ILocalTestCase">
+            <summary>
+            Represents the local test case (e.g. a Gherkin scenario)
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.Name">
+            <summary>
+            The name of the local test case
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.Description">
+            <summary>
+            The short description of the local test case (may contain multiple lines of text).
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.TestedRule">
+            <summary>
+            The business rule (acceptance criterion) tested by the local test case.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.Tags">
+            <summary>
+            The list of tags attached to the local test case.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.TestCaseLink">
+            <summary>
+            The reference to the linked Azure DevOps Test Case work item.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.IsDataDrivenTest">
+            <summary>
+            Returns, whether the local test case is data driven (e.g. Scenario Outline).
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.DataRows">
+            <summary>
+            The data rows of a data driven local test case.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCase.TestCount">
+            <summary>
+            The number of tests represented by the local test case.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.BddProject">
+            <summary>
+            The BDD project contains this container.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.SourceFile">
+            <summary>
+            The source file of the container.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.Name">
+            <summary>
+            The name of the container.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.Description">
+            <summary>
+            The short description of the container (may contain multiple lines of text).
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.LocalTestCases">
+            <summary>
+            The local test cases included in this container.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.Updater">
+            <summary>
+            A service that is able to make changes in the container source or <c>null</c> if changes are not supported.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.KeywordParser">
+            <summary>
+            A parser that is able to detect keywords used as prefixes of steps and Test Case title. You can use <see cref="F:SpecSync.AzureDevOps.Gherkin.GherkinKeywordParser.Default"/> as a default implementation that is able to detect English Gherkin keywords or <see cref="T:SpecSync.AzureDevOps.TfsIntegration.NoKeywordParser"/> if the local test case does not have keywords.
+            </summary>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.GetLocalTestCaseContainerSource">
+            <summary>
+            Provides the source text of the container.
+            </summary>
+            <returns>The source text or <c>null</c>.</returns>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer.GetLocalTestCaseSource(SpecSync.AzureDevOps.Parsing.ILocalTestCase)">
+            <summary>
+            Provides the source text of the local test case.
+            </summary>
+            <param name="localTestCase">The local test case of the container to get the source for.</param>
+            <returns>The source text or <c>null</c>.</returns>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerParser">
+            <summary>
+            Parses an <see cref="T:SpecSync.AzureDevOps.Projects.ISourceFile"/> to a <see cref="T:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer"/>.
+            </summary>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater">
+            <summary>
+            Represents the functions needed for SpecSync to update the local test case container.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.IsDirty">
+            <summary>
+            <c>true</c>, if the local test case container has pending change.
+            </summary>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.Flush">
+            <summary>
+            Writes out all pending changes of the local test case container.
+            </summary>
+            <returns><c>true</c>, if there was an actual update needed.</returns>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.SetTestCaseLink(SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Parsing.TestCaseLink)">
+            <summary>
+            Sets a Test Case link. Needed for push command.
+            </summary>
+            <param name="localTestCase">The local test case being processed.</param>
+            <param name="testCaseLink">The new Test Case link.</param>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.UpdateTestCaseLink(SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Parsing.TestCaseLink,SpecSync.AzureDevOps.Parsing.TestCaseLink)">
+            <summary>
+            Updates or removes an existing Test Case link. Needed for re-link command. Optional, may throw a <see cref="T:System.NotSupportedException"/> if not supported.
+            </summary>
+            <param name="localTestCase">The local test case being processed.</param>
+            <param name="oldTestCaseLink">The Test Case link to be changed</param>
+            <param name="newTestCaseLink">The Test Case link to replace the link to or <c>null</c> if the link has to be removed.</param>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.UpdateArtifactLink(SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Parsing.ArtifactLink,SpecSync.AzureDevOps.Parsing.ArtifactLink)">
+            <summary>
+            Updates or removes an artifact link. Needed for re-link command. Optional, may throw a <see cref="T:System.NotSupportedException"/> if not supported.
+            </summary>
+            <param name="localTestCase">The local test case being processed.</param>
+            <param name="oldArtifactLink">The artifact link to be changed</param>
+            <param name="newArtifactLink">The artifact link to replace the link to or <c>null</c> if the link has to be removed.</param>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainerUpdater.UpdateLocalTestCase(SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Analyzing.TestCaseSourceData,SpecSync.AzureDevOps.Analyzing.TestCaseSourceData,SpecSync.AzureDevOps.Parsing.TestCaseLink)">
+            <summary>
+            Updates the local test case. Needed for pull. Optional, may throw a <see cref="T:System.NotSupportedException"/> if not supported.
+            </summary>
+            <param name="localTestCase">The local test case being processed.</param>
+            <param name="localTestCaseSource">The original test case source of the local test case.</param>
+            <param name="transformedRemoteTestCase">The remote test case source the local test case should be updated with.</param>
+            <param name="testCaseLink">The link to the Test Case.</param>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseTag.Name">
+            <summary>
+            The name of the tag, without the '@' prefix
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseStructuredTag.Prefix">
+            <summary>
+            Provides the prefix part of the tag (@[prefix]:[value]), if applicable; otherwise null
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseStructuredTag.ArtifactId">
+            <summary>
+            Provides the artifact ID part of the tag (@[prefix]:[artifact-id]), if applicable; otherwise null
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.Parsing.ILocalTestCaseStructuredTag.ArtifactLabel">
+            <summary>
+            Provides the artifact label part of the tag (@[prefix]:[artifact-id]:[artifact-label]), if applicable; otherwise null
+            </summary>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.Projects.SpecFlowConfigurationSettings">
+            <summary>
+            The SpecFlow configuration settings that are relevant for SpecSync
+            </summary>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.PublishTestResults.Matchers.ITestRunnerResultMatcher.GetLocalTestCaseResultSelector(SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer,SpecSync.AzureDevOps.PublishTestResults.Matchers.TestRunnerResultMatcherArgs)">
+            <summary>
+            Returns the test result selector that is able to identify results of a local test case (scenario).
+            </summary>
+            <param name="localTestCase">The local test case (scenario).</param>
+            <param name="localTestCaseContainer">The container (feature) of the local test case.</param>
+            <param name="args">Other details.</param>
+            <returns>The result selector.</returns>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.PublishTestResults.Matchers.ITestRunnerResultMatcher.GetDataRow(SpecSync.AzureDevOps.PublishTestResults.TestRunTestResult,SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition,SpecSync.AzureDevOps.Parsing.ILocalTestCase,SpecSync.AzureDevOps.Parsing.ILocalTestCaseContainer,SpecSync.AzureDevOps.PublishTestResults.Matchers.TestRunnerResultMatcherArgs)">
+            <summary>
+            Returns the data row (example) parameters of a test result. Return <c>null</c> if not supported.
+            </summary>
+            <param name="testResult">The selected test result.</param>
+            <param name="testDefinition">The test definition of the selected test result.</param>
+            <param name="localTestCase">The local test case (scenario).</param>
+            <param name="localTestCaseContainer">The container (feature) of the local test case.</param>
+            <param name="args">Other details.</param>
+            <returns>The data row (example) parameters or null if the parameters cannot be detected.</returns>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.PublishTestResults.TestOutcome">
+            <summary>
+            Test outcomes. To make it simpler for the most common case, we use the TRX test outcomes.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition.Name">
+            <summary>
+            The class name associated for the test. Can be left empty when the related <see cref="T:SpecSync.AzureDevOps.PublishTestResults.Matchers.ITestRunnerResultMatcher"/> does not need it.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition.ClassName">
+            <summary>
+            The class name associated for the test. Can be left empty when the related <see cref="T:SpecSync.AzureDevOps.PublishTestResults.Matchers.ITestRunnerResultMatcher"/> does not need it.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition.MethodName">
+            <summary>
+            The method name associated for the test. Can be left empty when the related <see cref="T:SpecSync.AzureDevOps.PublishTestResults.Matchers.ITestRunnerResultMatcher"/> does not need it.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition.Description">
+            <summary>
+            The description of the test. Not used by SpecSync currently.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.PublishTestResults.TestRunTestDefinition.Results">
+            <summary>
+            The test execution results for this test definition.
+            </summary>
+        </member>
+        <member name="T:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings">
+            <summary>
+            Represents automated test association in Azure DevOps.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings.AutomatedStorage">
+            <summary>
+            The storage that contains the automated test. Usually the file name of the assembly.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings.AutomatedTestName">
+            <summary>
+            The name of the tests. In case of .NET, the full name of the method, e.g. 'MyNamespace.MyClass.MyMethodName'.
+            </summary>
+        </member>
+        <member name="P:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings.AutomatedTestType">
+            <summary>
+            The type of the automated test in Azure DevOps. It is set to <see cref="F:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomatedTestTypes.Gherkin"/> by default.
+            </summary>
+        </member>
+        <member name="M:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Crates an <see cref="T:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomationSettings"/> value object that represents the automated test association.
+            </summary>
+            <param name="automatedStorage">The storage that contains the automated test. Usually the file name of the assembly.</param>
+            <param name="automatedTestName">The name of the tests. In case of .NET, the full name of the method, e.g. 'MyNamespace.MyClass.MyMethodName'.</param>
+            <param name="automatedTestType">The type of the automated test in Azure DevOps. It is set to <see cref="F:SpecSync.AzureDevOps.TfsIntegration.Diff.AutomatedTestTypes.Gherkin"/> by default.</param>
+        </member>
+    </members>
+</doc>

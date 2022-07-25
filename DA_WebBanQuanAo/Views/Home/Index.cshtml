@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<link href="~/CSS/Style1.css" rel="stylesheet" type="text/css"/>
+<div class="container">
+    <div>
+        <h1>Sản phẩm bán chạy</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>                   
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/quanunisex1.jpg" alt=""/></div>
+                                    <div class="img-text">
+                                        <h2>Quần Unisex</h2>
+                                        <p>
+                                            Thoải mái với tất cả mọi người, phù hợp với mọi giới tính
+                                        </p>                                                              
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/aonu2.jpg" alt=""/></div>
+                                    <div class="img-text">
+                                        <h2>Áo nữ</h2>
+                                        <p>
+                                            Một loại áo cá tính dành cho nữ
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/aounisex5.jpg" alt=""/></div>
+                                    <div class="img-text">
+                                        <h2>Áo Unisex</h2>
+                                        <p>
+                                            Thoải mái với tất cả mọi người, phù hợp với mọi giới tính
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/quannu2.jpg" alt=""/></div>
+                                    <div class="img-text">
+                                        <h2>Quần nữ</h2>
+                                        <p>
+                                            Dễ dàng phối đồ
+                                        </p>                                     
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/aonam6.jpg" alt=""/></div>
+                                    
+                                    <div class="img-text">
+                                        <h2>Áo nam</h2>
+                                        <p>
+                                            Một loại áo cá tính dành cho nam
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="single-box">
+                                    <div class="img-area"><img src="~/Images/aonu8.jpg" alt=""/></div>
+                                    <div class="img-text">
+                                        <h2>Áo Unisex</h2>
+                                        <p>
+                                            Thoải mái với tất cả mọi người, phù hợp với mọi giới tính
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div>
+            <h1>Sản phẩm nam</h1>
+        </div>
+    <div class="row">
+         <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aonam3.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/quannam1.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aonam1.jpg" alt=""/>
+               </div>                     
+                <a style="float:right; text-transform:none;color:red;" href="@Url.Action("SanPhamNam","SanPham")">Xem thêm sản phẩm>></a>
+            </div>
+        </div>
+    </div>
+     <div>
+            <h1>Sản phẩm nữ</h1>
+        </div>
+    <div class="row">
+         <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aonu3.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/quannu1.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aonu5.jpg" alt=""/>
+               </div>                     
+                <a style="float:right; text-transform:none;color:red;" href="@Url.Action("SanPhamNu","SanPham")">Xem thêm sản phẩm>></a>
+            </div>
+        </div>
+    </div>
+    <div>
+            <h1>Sản phẩm unisex</h1>
+        </div>
+    <div class="row">
+         <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aounisex3.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/quanunisex1.jpg" alt=""/>
+
+               </div>                     
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="single-box">
+               <div class="img-area"><img src="~/Images/aounisex1.jpg" alt=""/>
+               </div>                     
+                <a style="float:right; text-transform:none;color:red;" href="@Url.Action("SanPhamUni","SanPham")">Xem thêm sản phẩm>></a>
+            </div>
+        </div>
+    </div>
+</div>

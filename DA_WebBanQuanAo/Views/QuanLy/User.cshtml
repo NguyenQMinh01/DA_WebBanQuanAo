@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+@using DA_WebBanQuanAo.Models
+@model List<TAIKHOAN>
+<div class="container text-center">
+    <div>
+        <h2>Danh sách khách hàng</h2>
+    </div>
+    <div class ="card border-dark">
+        <table class="table">
+            <tr style="background-color:aqua">
+                <th>Tên đăng nhập</th>
+                <th>Họ tên</th>
+                <th>Gmail</th>
+                <th>Điện thoại</th>
+                <th>Password</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   <td width="12%">@item.TenTK</td>
+                    <td width="20%">@item.HoTen</td>
+                    <td width="20%">@item.Gmail</td>
+                    @using (Html.BeginForm("CapNhatTaiKhoan", "QuanLy", new {@TenTk = item.TenTK}))
+                    {
+                    <td width="12%">@item.DienThoai</td>
+                    <td width="5%"><input type="password" name="Pass" value="@item.Pass"/></td>                                      
+                    <td>@Html.ActionLink("Delete", "XoaTaiKhoan", new{@TenTK = item.TenTK})</td>
+                    <td><input type ="submit" value="Update" class="btn btn-primary" /></td>
+                    }
+                </tr>
+            }      
+        </table>
+    </div>
+</div>

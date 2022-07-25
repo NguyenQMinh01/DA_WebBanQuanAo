@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@using DA_WebBanQuanAo.Models
+@model List<SANPHAM>
+<h2 style="text-align:center">KẾT QUẢ TÌM KIẾM</h2>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-4">
+                <img src="@Url.Content("~/Images/" + item.Images)" width="70%" height="70%" alt="Image" />
+                @if (item.TenSP.Length > 30)
+                {
+                    <p>
+                        <strong title="@item.TenSP">Tên sản phẩm:@item.TenSP.Substring(0, 30)....</strong>
+                        <br />
+                        <strong title="@item.Gia">Giá: @string.Format("{0:0}", @item.Gia) VND</strong><br />
+                        <a href="@Url.Action("XemChiTiet","SanPham",new {@masp=item.MaSP})">Xem chi tiết</a>
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <strong title="@item.TenSP">
+                            Tên sản phẩm:@item.TenSP
+                        </strong>
+                        <br />
+                        <strong title="@item.Gia">Giá: @string.Format("{0:0}", @item.Gia) VND</strong><br />
+                        <a href="@Url.Action("XemChiTiet","SanPham",new {@masp=item.MaSP})">Xem chi tiết</a>
+                    </p>
+                }
+            </div>
+        }
+    }
+</div>
+

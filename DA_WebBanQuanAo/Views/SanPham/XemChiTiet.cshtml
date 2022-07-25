@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="container text-center">
+<h2>Chi tiết sản phẩm</h2>
+<div class="card border-dark">
+    <table class="border-dark mx-3 mb-3 mt-3">
+        <tr class="text-left">
+            <td rowspan="5" width="45%">
+                <img class="card-header" src="@Url.Content("~/Images/"+Model.Images)" width="100%" height="100%" /> 
+            </td>
+            <td width="20%">Tên Sản phẩm:</td>
+            <td width ="35%" style="font-weight:bold; color:blue">@Model.TenSP</td>
+        </tr>                  
+         <tr class="text-left">
+            <td>Giá bán:</td>
+            <td style="color:red; font-weight:bold">@string.Format("{0:0,0}", @Model.Gia) VNĐ</td>
+        </tr>
+        <tr class="text-left">
+            <td>Mô tả:</td>
+            <td style="color:black;font-weight:bold">@Model.MoTa</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Url.Action("ThemGioHang", "GioHang", new {@masp = Model.MaSP, @strURL = Request.Url.ToString()})">
+                    <input type="submit" value="MUA NGAY" class="btn btn-primary" /> <br /><br />
+                </a>
+                <a href="@Url.Action("SanPham", "SanPham")"><input type="submit" value="MUA TIẾP" class="btn btn-primary" /></a>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+</div>
+</div>

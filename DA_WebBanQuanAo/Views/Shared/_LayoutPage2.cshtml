@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+       <link href="~/CSS/Style2.css" type="text/css" rel="stylesheet"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-2 sidebar" style="float:left">
+            <ul class="nav-list">
+                  <li>
+                      <i class='bx bx-search' ></i>
+                     <input type="text" placeholder="Search...">
+                     <span class="tooltip">Search</span>            
+                  </li>
+                  <li>
+                    <a href="@Url.Action("Index","Quanly")">
+                      <i class='bx bx-grid-alt'></i>
+                      <span class="links_name"></span>
+                        Dashboard
+                    </a>
+                     <span class="tooltip">Dashboard</span>
+                  </li>
+                  <li>
+                   <a href="@Url.Action("User","Quanly")">
+                     <i class='bx bx-user' ></i>
+                     <span class="links_name"></span>
+                       User
+                   </a>
+                   <span class="tooltip">User</span>
+                 </li>            
+                 <li>
+                   <a href="@Url.Action("SanPham","Quanly")">
+                     <i class='bx bx-folder' ></i>
+                     <span class="links_name"></span>
+                       Product
+                   </a>
+                   <span class="tooltip">Files</span>
+                 </li>
+                 <li>
+                   <a href="@Url.Action("HoaDon","Quanly")">
+                     <i class='bx bx-cart-alt' ></i>
+                     <span class="links_name"></span>
+                       Order
+                   </a>
+                   <span class="tooltip">Order</span>
+                 </li>
+                              
+                 <li class="profile">
+                     <a href="@Url.Action("Index","Home")"><i class='bx bx-log-out' id="log_out" ></i>Log out</a>                 
+                 </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            @RenderBody()
+        </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

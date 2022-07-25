@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+@using DA_WebBanQuanAo.Models
+@model List<SANPHAM>
+<h2 class="text-center">Danh sách sản phẩm</h2>
+<div class="container text-center">
+    <div class ="card border-dark">
+        <table class="table">
+            <tr style="background-color:lightyellow">
+                <th>MÃ SẢN PHẨM</th>
+                <th>TÊN SẢN PHẨM</th>
+                <th>ẢNH BÌA</th>
+                <th>SỐ LƯỢNG</th>
+                <th>ĐƠN GIÁ</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   <td width="12%">@item.MaSP</td>
+                    <td width="26%">@item.TenSP</td>
+                    <td width="22%"><img src="/Images/@item.Images" width="100%" /></td>
+                    @using (Html.BeginForm("CapNhatSanPham", "QuanLy", new {@MaSP = item.MaSP}))
+                    {
+                    <td width="12%"><input type="number" min="1" name="txtSoLuong" value="@item.SoLuong" /></td>
+                    <td width="12%">@String.Format("{0:0}", item.Gia)</td>                                      
+                    <td>@Html.ActionLink("Delete", "XoaSanPham", new{@MaSP = item.MaSP})</td>
+                    <td><input type ="submit" value="Update" class="btn btn-primary" /></td>
+                    }
+                </tr>
+            }
+            <tr>
+                   <td width="12%"></td>
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <td width="26%"><input type="text" name="TenSP" style="width:100%;"/></td>
+                    <td width="22%"><input type="file" name="Hinh" style="width:100%;height:80px"/></td>         
+                    <td width="12%"><input type="number" min="1" name="txtSoLuong" style="width:100%"/></td>
+                    <td width="12%"><input type="number" min="1" name="Gia" style="width:100%"/></td>
+                    <td><a href="@Url.Action("ThemSanPham","QuanLy")">Add</a></td>  
+                }                                           
+                </tr>   
+        </table>
+    </div>
+</div>

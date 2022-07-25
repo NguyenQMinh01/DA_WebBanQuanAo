@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "CT_HoaDon";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+@using DA_WebBanQuanAo.Models
+@model List<CT_HOADON>
+<h2>Chi tiết hóa đơn</h2>
+<div class="container text-center">
+    <div class ="card border-dark">
+        <table class="table">
+            <tr style="background-color:lightcyan">
+                <th>Mã hóa đơn</th>
+                <th>Mã sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                   <td width="12%">@item.MaHD</td>
+                    <td width="26%">@item.MaSP</td>
+                    <td width="22%">@item.SoLuong</td>                                                      
+                    <td width="12%">@item.ThanhTien</td>                                                                
+                </tr>
+            }      
+        </table>
+    </div>
+</div>
+

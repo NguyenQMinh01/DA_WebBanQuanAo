@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "SanPhamNu";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container text-center">
+    <h1>Thời trang nữ</h1>
+    <br />
+    <br />
+    <br />
+</div>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-4">
+            <img src="@Url.Content("~/Images/"+item.Images)" width="70%" height="70%" alt="Image"/>
+             @if(item.TenSP.Length > 30)
+                    {
+                        <p><strong title="@item.TenSP">Tên sản phẩm: @item.TenSP.Substring(0,30)...</strong><br />
+                            <strong title="@item.Gia">Giá: @string.Format("{0:0}", @item.Gia) VND</strong><br />
+                            <a href="@Url.Action("XemChiTiet",new {@masp = item.MaSP })" >Xem chi tiết</a>
+                            
+                        </p>
+                    }
+                    else
+                    {
+                        <p><strong title="@item.TenSP">Tên sản phẩm: @item.TenSP</strong><br />
+                            <strong title="@item.Gia">Giá: @string.Format("{0:0}", @item.Gia) VND</strong><br />
+                            <a href="@Url.Action("XemChiTiet",new {@masp = item.MaSP })">Xem chi tiết</a>
+
+                        </p>
+                    }
+                    <div class="clear"></div>
+           </div>
+        }    
+    }
+</div>
+

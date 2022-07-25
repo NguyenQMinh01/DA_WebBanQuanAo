@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="Style1.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="container text-center">
+        <img src="~/Images/banner.jpg" width="100%" height="250px"/>
+    </div>
+    <div class="container text-center">
+        <form action="~/SanPham/Search" method="get">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand" href="#"> 
+                <img class="rounded" width="100%"/>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item nav-link">
+                        <a href="@Url.Action("Index","Home")" style="color:white">Trang chủ</a>
+                    </li>
+                    <li class="nav-item nav-link">
+                        <a href="@Url.Action("About","Home")" style="color:white" >Giới thiệu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="@Url.Action("SanPham","SanPham")" style="color:white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Sản phẩm</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdown">
+                        <li><a class="dropdown-item" href="@Url.Action("SanPhamNam","SanPham")">Thời trang nam</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("SanPhamNu","SanPham")">Thời trang nữ</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("SanPhamUni","SanPham")">Thời trang unisex</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item nav-link">
+                        <a href="#" style="color:white">Liên hệ</a>
+                    </li>                   
+                    <li>
+                        <input class="form-control mx-auto" type="search" placeholder="Search" aria-label="Search" name="txt_Search">
+                    </li>
+                    <li>
+                        <button class="btn btn-link" type="submit" ><img src="/Images/search.JPG" class="rounded" /></button>
+                    </li>
+                </ul>
+                <div style="float:right; list-style-type:none;" class="nav-item nav-link">
+                    <a href="@Url.Action("DangNhap","Home")" style="color:white ">Đăng nhập</a>
+                </div>
+               <div style="float:right; list-style-type:none;" class="nav-item nav-link">
+                    <a href="@Url.Action("DangKy","Home")" style="color:white">Đăng ký</a>
+                </div>
+                <div style="float:right" class="nav-item nav-link">                    
+                        @Html.Action("GioHangPartial", "GioHang")              
+                </div>
+            </div>
+        </nav>
+        </form>
+
+
+
+        <div class="row">
+            @RenderBody()
+        </div>
+        <footer class="navbar navbar-dark bg-dark">
+        <div class="container-fluid padding">
+            <div class="row text-center" style="color:white">
+                <div class="col-md-4">
+                    <hr class="light"/>
+                    <h2>Liên hệ với chúng tôi</h2>
+                    <hr class="light"/>
+                    <p>031547899</p>
+                    <p>myteam@gmail.com</p>
+                    <p>140 Lê Trọng Tấn, Tân Phú, TP.HCM</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light"/>
+                    <h2>Thời gian làm việc</h2>
+                    <hr class="light"/>
+                    <p>Every day 7am - 5pm</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light"/>
+                    <h2>Nhận thông báo email</h2>
+                    <hr class="light"/>
+                    <input type="text"/>
+                    <input type="submit" value="Gửi"/>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>

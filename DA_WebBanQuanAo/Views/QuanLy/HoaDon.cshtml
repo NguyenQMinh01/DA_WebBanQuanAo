@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+@using DA_WebBanQuanAo.Models
+@model List<HOADON>
+<div class="container text-center">
+    <h2>Danh sách các hóa đơn</h2>
+</div>
+<div class="container text-center">
+    <div class ="card border-dark">
+        <table class="table">
+            <tr style="background-color:lightcyan">
+                <th>Mã hóa đơn</th>
+                <th>Tên đăng nhập</th>
+                <th>Ngày đặt</th>
+                <th>Ngày giao</th>
+                <th>Tổng tiền</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                   <td width="12%">@item.MaHD</td>
+                    <td width="26%">@item.TenTK</td>
+                    <td width="22%">@item.NgayDat</td>
+                    @using (Html.BeginForm("CapNhatHoaDon", "QuanLy", new {@MaHD = item.MaHD}))
+                    {                
+                        <td width="12%"><input type="date" name="Ngaygiao" value="@item.ngaygiao"/>@item.ngaygiao</td>  
+                        <td width="12%">@item.TongTien</td>                                    
+                        <td>@Html.ActionLink("Detail", "CT_HoaDon",new {@MaHD = item.MaHD})</td>
+                        <td><input type ="submit" value="Update" class="btn btn-primary" /></td>
+                    }
+                </tr>
+            }      
+        </table>
+    </div>
+</div>
